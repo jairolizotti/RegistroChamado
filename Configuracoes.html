@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="RegistroChamado" ng-controller="AutenticacaoController as autCtrl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Configurações do Usuário</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>        
+        <link href="js/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
+        <link rel="stylesheet" href="fonts/font-awesome-4/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="js/jquery.nanoscroller/nanoscroller.css" />
+        <link href="css/style.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+        <script src="js/paginacao.js"></script>
+        <script src="js/controller/app.js"></script>
+    </head>
+    <body ng-controller="UsuarioController as ctrl">
+        <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="fa fa-gear"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span>&nbsp;</span></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right user-nav">
+                        <li class="dropdown profile_menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Olá, {{autCtrl.usuario[0].login}} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Configuracoes.html">Configurações</a></li>                                                                
+                                <li class="divider"></li>
+                                <li><a href="#" ng-click="autCtrl.deslogar()">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>           
+                </div>
+            </div>
+        </div>
+        <!-- MENU -->
+        <div id="cl-wrapper">
+            <div class="cl-sidebar">
+                <div class="cl-toggle"><i class="fa fa-bars"></i></div>
+                <div class="cl-navblock">
+                    <div class="menu-space">
+                        <div class="content">
+                            <ul class="cl-vnavigation">
+                                <li><a href="Chamados.html"><i class="fa fa-home"></i><span>Início</span></a></li>                     <li>
+                                    <a href="#"><i class="fa fa-headphones"></i><span>Chamados</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="NovoChamado.html">Novo Chamado</a></li>
+                                        <li><a href="Chamados.html">Tabela de Chamados</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-users"></i><span>Clientes</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="CadastraCliente.html">Cadastro de Clientes</a></li>
+                                        <li><a href="Clientes.html">Tabela de Clientes</a></li>                            
+                                    </ul>
+                                </li>
+                                <!--
+                                <li>
+                                    <a href="#"><i class="fa fa-user"></i><span>Usuários</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Cadastrar Usuário</a></li>
+                                        <li><a href="#">Tabela de Usuários</a></li>
+                                    </ul>
+                                </li>
+                                -->
+                            </ul>
+                        </div>
+                    </div>                    
+                </div>
+            </div>                    
+            <div class="block-flat">
+                <div class="header">                            
+                    <h3>Configurações do Usuário</h3>
+                </div>
+                <center>
+                    <div class="content" style="width: 600px;">                       
+                        <form  class="form-horizontal">
+                            <div class="form-group">
+                                <input type="text" ng-model="ctrl.usuario.idusuario" id="idusuario" class="form-control" placeholder="ID Usuário" disabled="disabled">
+                            </div>  
+                            <div class="form-group">
+                                <input type="text" ng-model="ctrl.usuario.login" id="login" class="form-control" placeholder="Login" disabled="disabled">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" ng-model="ctrl.usuario.senha" id="senha" class="form-control" placeholder="Senha">
+                            </div>                            
+                            <div class="form-group">
+                                <button ng-click="ctrl.salvar()" style="width: 100px" class="btn btn-primary btn-flat">Salvar</button>
+                            </div>
+                        </form>                         
+                    </div>
+                </center>
+            </div> 
+        </div>
+        <script src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.nanoscroller/jquery.nanoscroller.js"></script>
+        <script type="text/javascript" src="js/jquery.gritter/js/jquery.gritter.js"></script>
+        <script type="text/javascript" src="js/behaviour/general.js"></script>      
+        <script type="text/javascript">
+        $(document).ready(function () {
+            App.init();
+        });
+        </script>
+        <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

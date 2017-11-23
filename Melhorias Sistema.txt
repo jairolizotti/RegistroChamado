@@ -1,0 +1,38 @@
+Melhorias no sistema de chamados:
+1 - Armazenar na tabela de chamados o usuário que esta logado no sistema e exibir na grade de chamados o nome do usuario que fez o registro
+2 - Criar um campo para tipo de problema (listar os dados da tabela Tipo_Problema)
+3 - Ordenar o combobox de clientes e de tipo problema em ordem alfbética
+4 - Trocar o tipo de campo data de varchar para Date
+5 - Validar se um cliente já está cadastrado
+6 - 
+
+
+
+
+**********************************
+Criar um DashBoard com os seguintes dados:
+
+Total de clientes cadastrados: 70
+
+Total chamados registrados: 
+Na semana: 50
+No mês: 200
+No Semestre: 300
+No Ano: 400
+
+
+Outra Página de chamados por cliente:
+Total de chamados por cliente
+Filtro por data inicial e Final
+Exibir assim: 
+Cliente: xyz : 5
+Cliente: ABCDFER : 10
+
+
+Outra Página de chamados por Usuário:
+Total de chamados por Usuário
+Filtro por data inicial e Final
+Exibir assim: 
+Aline : 5
+Jairo : 10
+Leandro : 20

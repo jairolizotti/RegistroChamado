@@ -91,53 +91,29 @@ var app = angular.module("RegistroChamado", ['angularUtils.directives.dirPaginat
             self.chamado = {};           
 
             self.activate = function () {
-                self.chamado.data = self.parseDateBr(new Date());
+                self.chamado.data = self.parseDate(new Date());
                 self.chamado.hora = self.getHora();                
                 document.getElementById("data").value = self.chamado.data;
                 document.getElementById("hora").value = self.chamado.hora;
             };
-			
-			
+						     
 
-            /*dd/MM/aaaa*/
-            self.parseDateBr = function (date) {
-                var dateFormated = '';
+            self.parseDate = function (date) {                
+                var dia = date.getDate();
 
-                if (date.getDate() < 10) {
-                    dateFormated += '0' + date.getDate() + '/';
-                } else {
-                    dateFormated += date.getDate() + '/';
+                if (dia.toString().length == 1) {
+                    dia = "0" + dia;    
+                }
+                
+                var mes = date.getMonth() + 1;
+                if (mes.toString().length == 1) {
+                    mes = "0" + mes;
                 }
 
-                if ((date.getMonth()+1) < 10) {
-                    dateFormated += '0' + (date.getMonth()+1) + '/';
-                } else {
-                    dateFormated += date.getMonth() + '/';
-                }                    
+                var ano = date.getFullYear(); 
 
-                dateFormated += date.getFullYear();                            
-
-                return dateFormated;
-            };
-
-            /*yyyy-MM-dd*/
-            self.parseDateISO = function (date) {
-                var dateFormated = '';
-                dateFormated += date.getFullYear() + '-';
-                if ((date.getMonth() + 1) < 10) {
-                    dateFormated += '0' + (date.getMonth() + 1) + '-';
-                } else {
-                    dateFormated += date.getMonth();
-                }
-
-                if (date.getDate() < 10) {
-                    dateFormated += '0' + date.getDate();
-                } else {
-                    dateFormated += date.getDate();
-                }
-
-                return dateFormated;
-            };
+                return dia + "/" + mes + "/" + ano;
+            };    
 
             self.getHora = function () {
                 var hour = new Date();
